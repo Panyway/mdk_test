@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?><Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+  <DataServices m:DataServiceVersion="2.0">
+    <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="crowdoncloudservice">
+      <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Address" EntityType="crowdoncloudservice.Address"/>
+        <EntitySet Name="Appointments" EntityType="crowdoncloudservice.Appointments"/>
+        <EntitySet Name="Store" EntityType="crowdoncloudservice.Store"/>
+        <EntitySet Name="Timeseries" EntityType="crowdoncloudservice.Timeseries"/>
+        <AssociationSet Name="Store_address" Association="crowdoncloudservice.Store_address">
+          <End Role="Store" EntitySet="Store"/>
+          <End Role="Address" EntitySet="Address"/>
+        </AssociationSet>
+        <AssociationSet Name="Timeseries_timeseriesId" Association="crowdoncloudservice.Timeseries_timeseriesId">
+          <End Role="Timeseries" EntitySet="Timeseries"/>
+          <End Role="Store" EntitySet="Store"/>
+        </AssociationSet>
+      </EntityContainer>
+      <EntityType Name="Address">
+        <Key>
+          <PropertyRef Name="ID"/>
+          <PropertyRef Name="addressKey"/>
+        </Key>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="addressKey" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="storeKey" Type="Edm.Guid"/>
+        <Property Name="streetName" Type="Edm.String" MaxLength="60"/>
+        <Property Name="city" Type="Edm.String" MaxLength="40"/>
+        <Property Name="district" Type="Edm.String" MaxLength="40"/>
+        <Property Name="region" Type="Edm.String" MaxLength="3"/>
+        <Property Name="country" Type="Edm.String" MaxLength="3"/>
+        <Property Name="postalCode" Type="Edm.String" MaxLength="10"/>
+        <Property Name="timeZone" Type="Edm.String" MaxLength="3"/>
+        <Property Name="phoneNumber" Type="Edm.String" MaxLength="30"/>
+      </EntityType>
+      <EntityType Name="Appointments">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="name" Type="Edm.String" MaxLength="30"/>
+        <Property Name="storeKey" Type="Edm.Guid"/>
+        <Property Name="startTime" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="endTime" Type="Edm.DateTimeOffset" Precision="7"/>
+      </EntityType>
+      <EntityType Name="Store">
+        <Key>
+          <PropertyRef Name="storeKey"/>
+        </Key>
+        <Property Name="storeKey" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="storeId" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="storeName" Type="Edm.String" MaxLength="40"/>
+        <Property Name="time" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="capacity" Type="Edm.Decimal" Scale="3" Precision="13"/>
+        <Property Name="totalCount" Type="Edm.Decimal" Scale="3" Precision="13"/>
+        <Property Name="active" Type="Edm.Boolean"/>
+        <NavigationProperty Name="timeseries" Relationship="crowdoncloudservice.Timeseries_timeseriesId" FromRole="Store" ToRole="Timeseries"/>
+        <NavigationProperty Name="address" Relationship="crowdoncloudservice.Store_address" FromRole="Store" ToRole="Address"/>
+        <Property Name="address_addressKey" Type="Edm.Guid"/>
+      </EntityType>
+      <EntityType Name="Timeseries">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <NavigationProperty Name="timeseriesId" Relationship="crowdoncloudservice.Timeseries_timeseriesId" FromRole="Timeseries" ToRole="Store"/>
+        <Property Name="startTime" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="endTime" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="count" Type="Edm.Decimal" Scale="3" Precision="13"/>
+        <Property Name="timeseriesId_storeKey" Type="Edm.Guid"/>
+      </EntityType>
+      <Association Name="Store_address">
+        <End Role="Store" Type="crowdoncloudservice.Store" Multiplicity="0..1"/>
+        <End Role="Address" Type="crowdoncloudservice.Address" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="Address">
+            <PropertyRef Name="addressKey"/>
+          </Principal>
+          <Dependent Role="Store">
+            <PropertyRef Name="address_addressKey"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="Timeseries_timeseriesId">
+        <End Role="Timeseries" Type="crowdoncloudservice.Timeseries" Multiplicity="*"/>
+        <End Role="Store" Type="crowdoncloudservice.Store" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="Store">
+            <PropertyRef Name="storeKey"/>
+          </Principal>
+          <Dependent Role="Timeseries">
+            <PropertyRef Name="timeseriesId_storeKey"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+  </DataServices>
+</Edmx>

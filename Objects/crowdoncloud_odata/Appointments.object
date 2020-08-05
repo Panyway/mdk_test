@@ -1,0 +1,34 @@
+{
+	"Collection": [
+		"Appointments"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "ID",
+			"_Type": "Edm.Guid"
+		},
+		{
+			"Key": false,
+			"_Name": "name",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "storeKey",
+			"_Type": "Edm.Guid"
+		},
+		{
+			"Key": false,
+			"_Name": "startTime",
+			"_Type": "Edm.DateTimeOffset"
+		},
+		{
+			"Key": false,
+			"_Name": "endTime",
+			"_Type": "Edm.DateTimeOffset"
+		}
+	],
+	"Service": "/mdk_test/Services/crowdoncloud_odata.service",
+	"_Name": "Appointments"
+}

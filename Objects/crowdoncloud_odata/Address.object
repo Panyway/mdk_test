@@ -1,0 +1,64 @@
+{
+	"Collection": [
+		"Address"
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "ID",
+			"_Type": "Edm.Guid"
+		},
+		{
+			"Key": true,
+			"_Name": "addressKey",
+			"_Type": "Edm.Guid"
+		},
+		{
+			"Key": false,
+			"_Name": "storeKey",
+			"_Type": "Edm.Guid"
+		},
+		{
+			"Key": false,
+			"_Name": "streetName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "city",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "district",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "region",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "country",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "postalCode",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "timeZone",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "phoneNumber",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/mdk_test/Services/crowdoncloud_odata.service",
+	"_Name": "Address"
+}

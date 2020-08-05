@@ -1,0 +1,24 @@
+{
+	"Service": "/mdk_test/Services/samplesrv.service",
+	"DefiningRequests": [{
+		"Name": "Customers",
+		"Query": "Customers"
+	}, {
+		"Name": "Suppliers",
+		"Query": "Suppliers"
+	}, {
+		"Name": "SalesOrderHeaders",
+		"Query": "SalesOrderHeaders"
+	}, {
+		"Name": "SalesOrderItems",
+		"Query": "SalesOrderItems"
+	}],
+	"_Type": "Action.Type.OfflineOData.Initialize",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": "Downloading...",
+	"ActionResult": {
+		"_Name": "init"
+	},
+	"OnSuccess": "/mdk_test/Actions/Service/InitializeOfflineSuccessMessage.action",
+	"OnFailure": "/mdk_test/Actions/Service/InitializeOfflineFailureMessage.action"
+}

@@ -1,0 +1,21 @@
+{
+	"Service": "/mdk_test/Services/samplesrv.service",
+	"DefiningRequests": [{
+		"Name": "Customers",
+		"Query": "Customers"
+	}, {
+		"Name": "Suppliers",
+		"Query": "Suppliers"
+	}, {
+		"Name": "SalesOrderHeaders",
+		"Query": "SalesOrderHeaders"
+	}, {
+		"Name": "SalesOrderItems",
+		"Query": "SalesOrderItems"
+	}],
+	"_Type": "Action.Type.OfflineOData.Download",
+	"ActionResult": {
+		"_Name": "sync"
+	},
+	"OnFailure": "/mdk_test/Actions/Service/SyncFailureMessage.action"
+}

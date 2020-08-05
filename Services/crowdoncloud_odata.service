@@ -1,0 +1,5 @@
+{
+	"AppId": "com.sap.mdk.pan",
+	"DestinationName": "com.sap.mdk.pan",
+	"ServiceUrl": "/destinations/mobileservices_cf"
+}

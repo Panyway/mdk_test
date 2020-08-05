@@ -1,0 +1,41 @@
+{
+	"Collection": [
+		"Timeseries"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "timeseriesId",
+			"_Type": "Store"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "ID",
+			"_Type": "Edm.Guid"
+		},
+		{
+			"Key": false,
+			"_Name": "startTime",
+			"_Type": "Edm.DateTimeOffset"
+		},
+		{
+			"Key": false,
+			"_Name": "endTime",
+			"_Type": "Edm.DateTimeOffset"
+		},
+		{
+			"Key": false,
+			"_Name": "count",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "timeseriesId_storeKey",
+			"_Type": "Edm.Guid"
+		}
+	],
+	"Service": "/mdk_test/Services/crowdoncloud_odata.service",
+	"_Name": "Timeseries"
+}

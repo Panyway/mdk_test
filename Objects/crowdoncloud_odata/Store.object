@@ -1,0 +1,61 @@
+{
+	"Collection": [
+		"Store"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "timeseries",
+			"_Type": "Collection(Timeseries)"
+		},
+		{
+			"Key": false,
+			"_Name": "address",
+			"_Type": "Address"
+		}
+	],
+	"Properties": [
+		{
+			"Key": true,
+			"_Name": "storeKey",
+			"_Type": "Edm.Guid"
+		},
+		{
+			"Key": false,
+			"_Name": "storeId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "storeName",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": false,
+			"_Name": "time",
+			"_Type": "Edm.DateTimeOffset"
+		},
+		{
+			"Key": false,
+			"_Name": "capacity",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "totalCount",
+			"_Type": "Edm.Decimal"
+		},
+		{
+			"Key": false,
+			"_Name": "active",
+			"_Type": "Edm.Boolean"
+		},
+		{
+			"Key": false,
+			"_Name": "address_addressKey",
+			"_Type": "Edm.Guid"
+		}
+	],
+	"Service": "/mdk_test/Services/crowdoncloud_odata.service",
+	"_Name": "Store"
+}
