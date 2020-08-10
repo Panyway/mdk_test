@@ -8,7 +8,7 @@
 						{
 							"OnPress": "/mdk_test/Actions/navToSearch.action",
 							"TextAlignment": "center",
-							"Title": "Search",
+							"Title": "Search - Test1",
 							"Visible": true
 						}
 					],
